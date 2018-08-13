@@ -1,0 +1,221 @@
+﻿@Styles.Render("~/css/bootstrap.css")
+@model ShopNuocHoa.Models.PerfumeAndComment
+@using ShopNuocHoa.Models
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+
+
+
+<!--<div>
+    <div style="width:40%; float:left; border-left:dotted 1px; border-color:azure">
+        <img src="~/img/@Model.perfumeView.image" width="100%" />
+        <div>
+            @foreach (var i in Model.img_gallery)
+            {
+                <a href="~/img_gallery/@i.name">
+                    <img src="~/img_gallery/@i.name" style="width:100px; height:80px" />
+                </a>
+            }
+            
+        </div>
+    </div>
+    <div style="width:60%; float:left; padding:10px">
+        <p><span style="font-weight:bold;">Tên sản phẩm: </span>@Model.perfumeView.name</p>
+        <p><span style="font-weight:bold;">Nhãn hiệu: </span>@Model.perfumeView.brand</p>
+        <p><span style="font-weight:bold;">Xuất xứ: </span>@Model.perfumeView.origin</p>
+        <p><span style="font-weight:bold">Mô tả: </span><span>@Model.perfumeView.detail</span></p>
+        <p><span style="font-weight:bold">Giá gốc: </span><span style="font-size:13pt">@Html.FormatValue(@Model.perfumeView.price, "{0:#,##0} đ") VNĐ</span></p>
+        <p><span style="font-weight:bold">Giá khuyến mãi: </span><span style="font-size:13pt">@Html.FormatValue(@Model.perfumeView.price_sale, "{0:#,##0} đ") VNĐ</span></p>
+        <fieldset class="rating">
+            <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5" title="Awesome - 5 stars"></label>
+            <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+            <input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
+            <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+            <input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3" title="Meh - 3 stars"></label>
+            <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+            <input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+            <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+            <input type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1" title="Sucks big time - 1 star"></label>
+            <input type="radio" id="starhalf" name="rating" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+        </fieldset>
+        <input type="hidden" value="@Model.perfumeView.id" id="product_id" />
+        <input type="submit" class="btn btn-success" style="font-size:10px"
+               onclick="AddToCart('@Model.perfumeView.id')" value="Add To Cart" />
+    </div>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+
+    </p>
+</div>
+    <div class="col-md-8 col-md-offset-4">
+        <div class="container">
+            <h2><i class="fa fa-comments" aria-hidden="true"></i>Comments</h2>
+            <div id="wrapper">
+                <div class="scrollbar" id="style-7">
+                    <div class="force-overflow">
+                        <ul class="list-group">
+                            @foreach (feedback comment in Model.comments)
+                            {
+                                <li class="list-group-item">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <p style="color:blue">@comment.hoten</p>
+                                        </div>
+                                        <div class="card-body">
+                                            @comment.message
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @using (Html.BeginForm("Details", "Perfume", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.TextAreaFor(Model => Model.newcomment.message, new { @class = "form-control", @placeholder = "Write your comment...." })
+                    <small id="emailHelp" class="form-text text-muted">Give me your opion about our products</small>
+                </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+            }
+        </div>
+
+    </div>-->
+
+<div style=" margin-top:5%">
+    <div class="col-lg-4" style="width:40%; float:left; border-left:dotted 1px; border-color:azure;">
+        <img src="~/img/@Model.perfumeView.image" width="80%" style="border:1px solid" />
+        <div>
+            @foreach (var i in Model.img_gallery)
+            {
+                <a href="~/img_gallery/@i.name">
+                    <img src="~/img_gallery/@i.name" style="width:100px; height:80px; border:1px solid; margin-top:2%" />
+                </a>
+            }
+
+        </div>
+    </div>
+    <div class="col-lg-4" style="width:60%; float:left; padding:10px;">
+        <p><span style="font-weight:bold;">Tên sản phẩm: </span>@Model.perfumeView.name</p>
+        <p><span style="font-weight:bold;">Nhãn hiệu: </span>@Model.perfumeView.brand</p>
+        <p><span style="font-weight:bold;">Xuất xứ: </span>@Model.perfumeView.origin</p>
+        <p><span style="font-weight:bold">Mô tả: </span><span>@Model.perfumeView.detail</span></p>
+        <p><span style="font-weight:bold">Giá gốc: </span><span style="font-size:13pt">@Html.FormatValue(@Model.perfumeView.price, "{0:#,##0} đ") VNĐ</span></p>
+        <p><span style="font-weight:bold">Giá khuyến mãi: </span><span style="font-size:13pt">@Html.FormatValue(@Model.perfumeView.price_sale, "{0:#,##0} đ") VNĐ</span></p>
+        <fieldset class="rating">
+            <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5" title="Awesome - 5 stars"></label>
+            <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+            <input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
+            <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+            <input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3" title="Meh - 3 stars"></label>
+            <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+            <input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+            <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+            <input type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1" title="Sucks big time - 1 star"></label>
+            <input type="radio" id="starhalf" name="rating" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+        </fieldset>
+        <input type="hidden" value="@Model.perfumeView.id" id="product_id" />
+
+
+        <input type="submit" class="btn btn-success" style="font-size:10px"
+               onclick="AddToCart('@Model.perfumeView.id')" value="Add To Cart" />
+        <p class="btn btn-default" role="button" style="font-size:10px; margin-bottom:0px;">
+            @Html.ActionLink("Back to List", "Index")
+        </p>       
+    </div>
+    <div style="float:right">
+        <h3>Similar items</h3>
+        <div>
+            <img src="~/img/@Model.perfumeView.image" width="120px" height="100px" />
+            <div style="float:right;  ">
+                <p style="margin-bottom:2%; margin-top:5%; text-align:center">@Model.perfumeView.name</p>
+                <p><span style="font-size:13pt; text-align:center">@Html.FormatValue(@Model.perfumeView.price, "{0:#,##0} đ") VNĐ</span></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="col-md-10">
+    <div class="container">
+        <h2 style="margin-top:3%"><i class="fa fa-comments" aria-hidden="true"></i>Comments</h2>
+        <div id="wrapper">
+            <div class="scrollbar" id="style-7">
+                <div class="force-overflow">
+                    <ul class="list-group">
+                        @foreach (feedback comment in Model.comments)
+                        {
+                            <li class="list-group-item">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <p style="color:blue">@comment.hoten</p>
+                                    </div>
+                                    <div class="card-body">
+                                        @comment.message
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+        @using (Html.BeginForm("Details", "Perfume", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                @Html.TextAreaFor(Model => Model.newcomment.message, new { @class = "form-control", @placeholder = "Write your comment...." })
+                <small id="emailHelp" class="form-text text-muted">Give me your opion about our products</small>
+            </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+        }
+    </div>
+
+</div>
+
+<script>
+    function AddToCart(BookId) {
+        $.ajax({
+            type: 'POST',
+            url: '/Perfume/AddToCart',
+            data: { id: BookId },
+            success: function (data) {
+                $("#Cart_Amount").html(data.ItemAmount);
+            }
+        });
+    }
+
+    @if (Session["ShoppingCart"] != null)
+    {
+        int cartcount = 0;
+        List<CartItem> ls = Session["ShoppingCart"] as List<CartItem>;
+        foreach (CartItem item in ls)
+        {
+            cartcount += item.Quantity;
+        }
+        ViewBag.count = cartcount;
+    }
+</script>
+<script>
+    $("input[type=radio][name=rating]").change(function () {
+        var rating = $(this).val();
+        var product_id = $('#product_id').val();
+        console.log(rating, product_id);
+        $.ajax({
+            type: "POST",
+            url: '/Perfume/VoteRating',
+            data: { product_id: product_id, rating: rating },
+            success: function (data) {
+                console.log(data.customer_id, data.rate, data.perfume_id,data.vote,data.avg);
+            },
+            error: function () {
+                console.log("Error!!!");
+            },
+        });
+    });
+</script>
+

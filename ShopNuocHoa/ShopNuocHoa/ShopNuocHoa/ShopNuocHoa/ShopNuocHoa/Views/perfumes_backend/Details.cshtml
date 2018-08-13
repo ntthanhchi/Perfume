@@ -1,0 +1,92 @@
+﻿@model ShopNuocHoa.Models.ViewDetails
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>perfume</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên sản phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            Mô tả:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detail)
+        </dd>
+
+        <dt>
+            Giá:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            Số lượng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            Giảm giá (%):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.saleoff)
+        </dd>
+
+        <dt>
+            Trạng thái:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            Nhãn hiệu:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.brand)
+        </dd>
+        <dt>
+            Rating:
+        </dt>
+        <dd>
+            @if(Model.rating == 0)
+            {
+                <strong>NaN</strong>
+            }
+
+        </dd>
+        <dt>
+            Hình ảnh:
+        </dt>
+
+        <dd>
+            <img src="~/img/@Html.DisplayFor(model => model.image)" width="150px" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,88 @@
+﻿@Styles.Render("~/css/bootstrap.css")
+@Styles.Render("~/css/bootstrap.min.css")
+@{
+    ViewBag.Title = "ShoppingCart";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+@if (Model == null || Model.Count == 0)
+{
+    <p class="alert alert-danger">
+        Giỏ hàng của bạn rỗng!
+    </p>
+}
+else
+{
+    <h2 class="alert alert-warning">Giỏ hàng của bạn</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Hình</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Đơn giá</th>
+                    <th>Khuyến mãi</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                    <th>Xóa</th>
+                </tr>
+            </thead>
+            @{
+                double total = 0;
+                List<ShopNuocHoa.Models.CartItem> listCart = Session["ShoppingCart"] as
+                List<ShopNuocHoa.Models.CartItem>;
+            }
+            <tbody>
+                @if (listCart != null)
+                {
+                    foreach (var item in listCart)
+                    {
+                        <tr>
+                            <td width="100px">
+                                <img src="~/img/@item.PerfumeOrder.image" width="50px" style="height:50px" />
+                            </td>
+                            <td>@item.PerfumeOrder.name</td>
+                            <td>@Html.FormatValue(@item.PerfumeOrder.price, "{0:#,##0} đ")</td>
+                            <td>@item.PerfumeOrder.saleoff%</td>
+                            <td>
+                                <form action="@Url.Action("UpdateQuantity")" method="get">
+                                    <input type="hidden" name="SanPhamID" value="@item.PerfumeOrder.id" />
+                                    <input type="number" min="1" step="1" name="soluongmoi" value="@item.Quantity" style="width:50px" />
+                                    <button type="submit" class="btn btn-primary btn-sm"> Cập nhật </button>
+                                </form>
+                            </td>
+                            <td class="text-right">
+                                @{
+                                    double tong = (double)(@item.PerfumeOrder.price * @item.Quantity - @item.PerfumeOrder.price * @item.PerfumeOrder.saleoff * @item.Quantity / 100);
+                                    total += tong;
+                                }
+                                @Html.FormatValue(tong, "{0:#,##0} đ")
+                            </td>
+                            <td style="text-align:center">
+                                <a href="@Url.Action("DeleteProduct",new { SanPhamID = item.PerfumeOrder.id})" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?')">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+                                        }
+                                    }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="7" class="text-right">
+                        <strong>
+                            Tổng tiền: @Html.FormatValue(total, "{0:#,##0} đ")
+                        </strong>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <p class="pull-right">
+            <button class="btn btn-info" type="button" onclick="window.open('/Perfume/Index','_self')">
+                Continue shopping
+            </button>
+            <button class="btn btn-danger" type="button" onclick="window.open('/Perfume/Checkout','_self')">
+                Check out
+            </button>
+    </div>
+                                    }

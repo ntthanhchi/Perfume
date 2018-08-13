@@ -1,0 +1,744 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C2A096D0-BFC8-43BA-B92A-D3CD6E36B3E8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ShopNuocHoa</RootNamespace>
+    <AssemblyName>ShopNuocHoa</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="AspNetRoles.cs">
+      <DependentUpon>ShopNuocHoa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaims.cs">
+      <DependentUpon>ShopNuocHoa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogins.cs">
+      <DependentUpon>ShopNuocHoa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUsers.cs">
+      <DependentUpon>ShopNuocHoa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="brand.cs">
+      <DependentUpon>ShopNuocHoa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AspNetUsersController.cs" />
+    <Compile Include="Controllers\brands_backendController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PerfumeController.cs" />
+    <Compile Include="Controllers\perfumes_apiController.cs" />
+    <Compile Include="Controllers\perfumes_backendController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Correlations.cs">
+      <DependentUpon>ShopNuocHoa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__MigrationHistory.cs">
+      <DependentUpon>ShopNuocHoa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="feedback.cs">
+      <DependentUpon>ShopNuocHoa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="image.cs">
+      <DependentUpon>ShopNuocHoa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemCorrel.cs">
+      <DependentUpon>ShopNuocHoa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712311454170_InitialCreate.cs" />
+    <Compile Include="Migrations\201712311454170_InitialCreate.Designer.cs">
+      <DependentUpon>201712311454170_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801060913594_addfullname.cs" />
+    <Compile Include="Migrations\201801060913594_addfullname.Designer.cs">
+      <DependentUpon>201801060913594_addfullname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801060921416_role.cs" />
+    <Compile Include="Migrations\201801060921416_role.Designer.cs">
+      <DependentUpon>201801060921416_role.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801061027049_adduserright.cs" />
+    <Compile Include="Migrations\201801061027049_adduserright.Designer.cs">
+      <DependentUpon>201801061027049_adduserright.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\CheckoutModelForm.cs" />
+    <Compile Include="Models\CommentViewModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InfoViewModel.cs" />
+    <Compile Include="Models\ManageInfo.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\neighbor_avg.cs" />
+    <Compile Include="Models\PerfumeAndComment.cs" />
+    <Compile Include="Models\PerfumeIndexView.cs" />
+    <Compile Include="Models\predictions.cs" />
+    <Compile Include="Models\ProductRatings.cs" />
+    <Compile Include="Models\RoleViewModel.cs" />
+    <Compile Include="Models\ViewDetails.cs" />
+    <Compile Include="Models\ViewItem.cs" />
+    <Compile Include="perfume.cs">
+      <DependentUpon>ShopNuocHoa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sale.cs">
+      <DependentUpon>ShopNuocHoa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShopNuocHoa.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShopNuocHoa.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShopNuocHoa.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShopNuocHoa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShopNuocHoa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShopNuocHoa.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="UserRating.cs">
+      <DependentUpon>ShopNuocHoa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserVotes.cs">
+      <DependentUpon>ShopNuocHoa.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap1.css" />
+    <Content Include="Content\bootstrap1.min.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\carousel.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\footer.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\stylesheet.css" />
+    <Content Include="DemoAPI.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\SFUJamaicaRegular.svg" />
+    <Content Include="fonts\UTMLinotypeZapfinoKT.svg" />
+    <Content Include="fonts\UTMNeoSansIntelBold.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\footer_bg6.png" />
+    <Content Include="images\footer_diachi.png" />
+    <Content Include="images\footer_dienthoai.png" />
+    <Content Include="images\footer_email.png" />
+    <Content Include="images\footer_mxh1.png" />
+    <Content Include="images\footer_mxh2.png" />
+    <Content Include="images\footer_mxh3.png" />
+    <Content Include="images\footer_mxh4.png" />
+    <Content Include="images\footer_website.png" />
+    <Content Include="img\brandnuochoa2.jpg" />
+    <Content Include="img\brand\Bvlgari.png" />
+    <Content Include="img\brand\Calvin Klein.png" />
+    <Content Include="img\brand\chanel.png" />
+    <Content Include="img\brand\DSQUARED².png" />
+    <Content Include="img\brand\Dunhill.png" />
+    <Content Include="img\brand\gucci.png" />
+    <Content Include="img\brand\Juicy Couture.png" />
+    <Content Include="img\brand\lacome.png" />
+    <Content Include="img\brand\Ralph Lauren.png" />
+    <Content Include="img\brand\versace.png" />
+    <Content Include="img\brand\YSL Manifesto.png" />
+    <Content Include="img\Bright Crystal Absolu.png" />
+    <Content Include="img\Bright Crystal Limited Edition.png" />
+    <Content Include="img\Bright Crystal.jpg" />
+    <Content Include="img\Calvin Klein.png" />
+    <Content Include="img\Chance Eau Tendre.jpg" />
+    <Content Include="img\Chanel No.5 L%27eau for women.jpg" />
+    <Content Include="img\chanel_allure.png" />
+    <Content Include="img\chanel_allure_sensuelle.png" />
+    <Content Include="img\chanel_chance_eau.png" />
+    <Content Include="img\chanel_gabrielle.png" />
+    <Content Include="img\chanel_premiere.png" />
+    <Content Include="img\CK2 Calvin Klein.jpg" />
+    <Content Include="img\ckfree.png" />
+    <Content Include="img\Coco Mademoiselle.jpg" />
+    <Content Include="img\Dsquared2 Want Pour Femme.png" />
+    <Content Include="img\Dunhill London Icon Elite.png" />
+    <Content Include="img\gucci_edt.png" />
+    <Content Include="img\gucci_flora_magnolia.png" />
+    <Content Include="img\gucci_flora_mandarin.png" />
+    <Content Include="img\gucci_guilty.png" />
+    <Content Include="img\gucci_premiere.png" />
+    <Content Include="img\icon-title.png" />
+    <Content Include="img\lacome_attraction.png" />
+    <Content Include="img\lacome_hypnose.png" />
+    <Content Include="img\lacome_hypnose_senses.png" />
+    <Content Include="img\lacome_lavieest.png" />
+    <Content Include="img\lacome_magnifique.png" />
+    <Content Include="img\lacome_tresor.png" />
+    <Content Include="img\lacome_tresor_inlove.png" />
+    <Content Include="img\lacome_tresor_lanuit.png" />
+    <Content Include="img\lacome_tresor_midnight_rose.png" />
+    <Content Include="img\nuochoa.jpg" />
+    <Content Include="img\nuochoa2.jpg" />
+    <Content Include="img\Obsessed Calvin Klein for women.png" />
+    <Content Include="img\Polo Blue.png" />
+    <Content Include="img\Rose Goldea Bvlgari.png" />
+    <Content Include="img\stars.png" />
+    <Content Include="img\Versace Eros pour femme.png" />
+    <Content Include="img\Versace Man Eau Fraiche.png" />
+    <Content Include="img\versace_femme.png" />
+    <Content Include="img\versace_vanitas.png" />
+    <Content Include="img\versace_versense.png" />
+    <Content Include="img\versace_versus.png" />
+    <Content Include="img\versace_yellow.png" />
+    <Content Include="img\Viva La Juicy Gold Couture.png" />
+    <Content Include="img\YSL Manifesto.png" />
+    <Content Include="img_gallery\Bright Crystal Absolu_1.png" />
+    <Content Include="img_gallery\Bright Crystal Absolu_2.png" />
+    <Content Include="img_gallery\Bright Crystal Absolu_3.png" />
+    <Content Include="img_gallery\Chance Eau Tendre_1.jpg" />
+    <Content Include="img_gallery\Chance Eau Tendre_2.jpg" />
+    <Content Include="img_gallery\Chance Eau Tendre_3.jpg" />
+    <Content Include="img_gallery\Chanel No.5 L%27eau_1.jpg" />
+    <Content Include="img_gallery\Chanel No.5 L%27eau_2.jpg" />
+    <Content Include="img_gallery\chanel_allure_1.png" />
+    <Content Include="img_gallery\chanel_allure_2.png" />
+    <Content Include="img_gallery\chanel_allure_3.png" />
+    <Content Include="img_gallery\chanel_allure_4.png" />
+    <Content Include="img_gallery\chanel_allure_sensuelle_1.png" />
+    <Content Include="img_gallery\chanel_allure_sensuelle_2.png" />
+    <Content Include="img_gallery\chanel_chance_eau_1.png" />
+    <Content Include="img_gallery\chanel_chance_eau_2.png" />
+    <Content Include="img_gallery\chanel_chance_eau_3.png" />
+    <Content Include="img_gallery\chanel_chance_eau_4.png" />
+    <Content Include="img_gallery\chanel_gabrielle_1.png" />
+    <Content Include="img_gallery\chanel_gabrielle_2.png" />
+    <Content Include="img_gallery\chanel_gabrielle_3.png" />
+    <Content Include="img_gallery\chanel_gabrielle_4.png" />
+    <Content Include="img_gallery\chanel_premiere_1.png" />
+    <Content Include="img_gallery\chanel_premiere_2.png" />
+    <Content Include="img_gallery\ck2_1.jpg" />
+    <Content Include="img_gallery\ck2_2.jpg" />
+    <Content Include="img_gallery\ckfree_1.jpg" />
+    <Content Include="img_gallery\ckfree_2.jpg" />
+    <Content Include="img_gallery\ckfree_3.jpg" />
+    <Content Include="img_gallery\Coco Mademoiselle_1.png" />
+    <Content Include="img_gallery\gucci_edt_1.png" />
+    <Content Include="img_gallery\gucci_edt_2.png" />
+    <Content Include="img_gallery\gucci_flora_magnolia_1.png" />
+    <Content Include="img_gallery\gucci_flora_magnolia_2.png" />
+    <Content Include="img_gallery\gucci_flora_magnolia_3.png" />
+    <Content Include="img_gallery\gucci_flora_mandarin_1.png" />
+    <Content Include="img_gallery\gucci_flora_mandarin_2.png" />
+    <Content Include="img_gallery\gucci_guilty_1.png" />
+    <Content Include="img_gallery\gucci_guilty_2.png" />
+    <Content Include="img_gallery\gucci_guilty_3.png" />
+    <Content Include="img_gallery\gucci_premiere_1.png" />
+    <Content Include="img_gallery\gucci_premiere_2.png" />
+    <Content Include="img_gallery\lacome_attraction_1.png" />
+    <Content Include="img_gallery\lacome_attraction_2.png" />
+    <Content Include="img_gallery\lacome_hypnose_1.png" />
+    <Content Include="img_gallery\lacome_hypnose_2.png" />
+    <Content Include="img_gallery\lacome_hypnose_3.png" />
+    <Content Include="img_gallery\lacome_hypnose_senses_1.png" />
+    <Content Include="img_gallery\lacome_lavieest_1.png" />
+    <Content Include="img_gallery\lacome_lavieest_2.png" />
+    <Content Include="img_gallery\lacome_magnifique_1.png" />
+    <Content Include="img_gallery\lacome_magnifique_2.png" />
+    <Content Include="img_gallery\lacome_magnifique_3.png" />
+    <Content Include="img_gallery\lacome_magnifique_4.png" />
+    <Content Include="img_gallery\lacome_tresor_1.png" />
+    <Content Include="img_gallery\lacome_tresor_2.png" />
+    <Content Include="img_gallery\lacome_tresor_3.png" />
+    <Content Include="img_gallery\lacome_tresor_inlove_1.png" />
+    <Content Include="img_gallery\lacome_tresor_inlove_2.png" />
+    <Content Include="img_gallery\lacome_tresor_inlove_3.png" />
+    <Content Include="img_gallery\lacome_tresor_lanuit_1.png" />
+    <Content Include="img_gallery\lacome_tresor_lanuit_2.png" />
+    <Content Include="img_gallery\lacome_tresor_lanuit_3.png" />
+    <Content Include="img_gallery\lacome_tresor_midnight_rose_1.png" />
+    <Content Include="img_gallery\lacome_tresor_midnight_rose_2.png" />
+    <Content Include="img_gallery\lacome_tresor_midnight_rose_3.png" />
+    <Content Include="img_gallery\lacome_tresor_midnight_rose_4.png" />
+    <Content Include="img_gallery\lacome_tresor_midnight_rose_5.png" />
+    <Content Include="img_gallery\nuochoa.jpg" />
+    <Content Include="img_gallery\nuochoa2.jpg" />
+    <Content Include="img_gallery\Rose Goldea Bvlgari_1.jpg" />
+    <Content Include="img_gallery\Rose Goldea Bvlgari_2.jpg" />
+    <Content Include="img_gallery\Versace Eros pour femme_1.png" />
+    <Content Include="img_gallery\Versace Eros pour femme_2.jpg" />
+    <Content Include="img_gallery\Versace Man Eau Fraiche_1.jpg" />
+    <Content Include="img_gallery\Versace Man Eau Fraiche_2.jpg" />
+    <Content Include="img_gallery\versace_femme_1.png" />
+    <Content Include="img_gallery\versace_femme_2.png" />
+    <Content Include="img_gallery\versace_vanitas_1.png" />
+    <Content Include="img_gallery\versace_vanitas_2.png" />
+    <Content Include="img_gallery\versace_versense_1.png" />
+    <Content Include="img_gallery\versace_versense_2.png" />
+    <Content Include="img_gallery\versace_versus_1.png" />
+    <Content Include="img_gallery\versace_versus_2.png" />
+    <Content Include="img_gallery\versace_versus_3.png" />
+    <Content Include="img_gallery\versace_yellow_1.png" />
+    <Content Include="img_gallery\versace_yellow_2.png" />
+    <Content Include="img_gallery\versace_yellow_3.png" />
+    <Content Include="img_gallery\versace_yellow_4.png" />
+    <Content Include="img_gallery\versace_yellow_5.png" />
+    <Content Include="img_gallery\Viva La Juicy Gold Couture_1.jpg" />
+    <Content Include="img_gallery\Viva La Juicy Gold Couture_2.jpg" />
+    <Content Include="img_gallery\YSL Manifesto_1.jpg" />
+    <Content Include="img_gallery\YSL Manifesto_2.jpg" />
+    <Content Include="img_slider\1025731_luxbeauty_jimmy_showcase_1500x300-tn.jpg" />
+    <Content Include="img_slider\1025731_luxbeauty_jimmy_showcase_1500x300.jpg" />
+    <Content Include="img_slider\24e25f8e-e2b1-4873-a09d-764c4ae489d8-tn.jpg" />
+    <Content Include="img_slider\24e25f8e-e2b1-4873-a09d-764c4ae489d8.jpg" />
+    <Content Include="img_slider\slide-bruno-tn.jpg" />
+    <Content Include="img_slider\slide-bruno.jpg" />
+    <Content Include="img_slider\slide-dus2-tn.jpg" />
+    <Content Include="img_slider\slide-dus2.jpg" />
+    <Content Include="img_slider\slide1_image-tn.jpg" />
+    <Content Include="img_slider\slide1_image.jpg" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery-3.2.1.js" />
+    <Content Include="js\jquery-3.2.1.min.js" />
+    <Content Include="js\popper.min.js" />
+    <Content Include="loginform\index.html" />
+    <Content Include="resetpassword\index.html" />
+    <Content Include="resetpassword\w3layouts-License.txt" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\UTMLinotypeZapfinoKT.eot" />
+    <Content Include="fonts\UTMLinotypeZapfinoKT.ttf" />
+    <Content Include="fonts\UTMLinotypeZapfinoKT.woff" />
+    <Content Include="fonts\UTMLinotypeZapfinoKT.woff2" />
+    <Content Include="fonts\UTMNeoSansIntelBold.eot" />
+    <Content Include="fonts\UTMNeoSansIntelBold.ttf" />
+    <Content Include="fonts\UTMNeoSansIntelBold.woff" />
+    <Content Include="fonts\UTMNeoSansIntelBold.woff2" />
+    <Content Include="fonts\SFUJamaicaRegular.eot" />
+    <Content Include="fonts\SFUJamaicaRegular.ttf" />
+    <Content Include="fonts\SFUJamaicaRegular.woff" />
+    <Content Include="fonts\SFUJamaicaRegular.woff2" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="ShopNuocHoa.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShopNuocHoa.edmx</DependentUpon>
+      <LastGenOutput>ShopNuocHoa.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ShopNuocHoa.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShopNuocHoa.edmx</DependentUpon>
+      <LastGenOutput>ShopNuocHoa.cs</LastGenOutput>
+    </Content>
+    <Content Include="sliderengine\amazingslider-1.css" />
+    <Content Include="sliderengine\amazingslider.js" />
+    <Content Include="sliderengine\arrows-32-32-0.png" />
+    <Content Include="sliderengine\bottomshadow-110-95-0.png" />
+    <Content Include="sliderengine\bullet-24-24-0.png" />
+    <Content Include="sliderengine\carouselarrows-32-32-0.png" />
+    <Content Include="sliderengine\html5boxplayer.swf" />
+    <Content Include="sliderengine\html5boxplayer_fullscreen.png" />
+    <Content Include="sliderengine\html5boxplayer_playvideo.png" />
+    <Content Include="sliderengine\html5boxplayer_volume.png" />
+    <Content Include="sliderengine\initslider-1.js" />
+    <Content Include="sliderengine\jquery.js" />
+    <Content Include="sliderengine\lightbox-close.png" />
+    <Content Include="sliderengine\lightbox-loading.gif" />
+    <Content Include="sliderengine\lightbox-navnext.png" />
+    <Content Include="sliderengine\lightbox-navprev.png" />
+    <Content Include="sliderengine\lightbox-prev.png" />
+    <Content Include="sliderengine\navarrows-28-28-0.png" />
+    <Content Include="sliderengine\navbuttonbgimage-28-28-0.png" />
+    <Content Include="sliderengine\navplaypause-28-28-0.png" />
+    <Content Include="sliderengine\play-32-32-0.png" />
+    <Content Include="sliderengine\playvideo-64-64-0.png" />
+    <Content Include="sliderengine\previewarrow-16-8-0.png" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Role\Edit.cshtml" />
+    <Content Include="Views\Role\Details.cshtml" />
+    <Content Include="Views\Role\Delete.cshtml" />
+    <Content Include="Views\Shared\_LayoutIndex.cshtml" />
+    <EntityDeploy Include="ShopNuocHoa.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShopNuocHoa.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ShopNuocHoa.edmx.diagram">
+      <DependentUpon>ShopNuocHoa.edmx</DependentUpon>
+    </Content>
+    <Content Include="Views\Perfume\Index.cshtml" />
+    <Content Include="Views\Perfume\Brand.cshtml" />
+    <Content Include="Views\Perfume\Details.cshtml" />
+    <Content Include="Views\Perfume\ShoppingCart.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\AspNetUsers\Create.cshtml" />
+    <Content Include="Views\AspNetUsers\Delete.cshtml" />
+    <Content Include="Views\AspNetUsers\Details.cshtml" />
+    <Content Include="Views\AspNetUsers\Edit.cshtml" />
+    <Content Include="Views\AspNetUsers\Index.cshtml" />
+    <Content Include="Views\Perfume\Checkout.cshtml" />
+    <Content Include="Views\Perfume\About.cshtml" />
+    <Content Include="Views\perfumes_backend\Create.cshtml" />
+    <Content Include="Views\perfumes_backend\Delete.cshtml" />
+    <Content Include="Views\perfumes_backend\Details.cshtml" />
+    <Content Include="Views\perfumes_backend\Edit.cshtml" />
+    <Content Include="Views\perfumes_backend\Index.cshtml" />
+    <Content Include="Views\perfumes_backend\Gettop.cshtml" />
+    <Content Include="Views\brands_backend\Create.cshtml" />
+    <Content Include="Views\brands_backend\Delete.cshtml" />
+    <Content Include="Views\brands_backend\Details.cshtml" />
+    <Content Include="Views\brands_backend\Edit.cshtml" />
+    <Content Include="Views\brands_backend\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="css_animate\" />
+    <Folder Include="loginform\css\" />
+    <Folder Include="loginform\images\" />
+    <Folder Include="resetpassword\css\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201712311454170_InitialCreate.resx">
+      <DependentUpon>201712311454170_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801060913594_addfullname.resx">
+      <DependentUpon>201801060913594_addfullname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801060921416_role.resx">
+      <DependentUpon>201801060921416_role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801061027049_adduserright.resx">
+      <DependentUpon>201801061027049_adduserright.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57816</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:57816/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

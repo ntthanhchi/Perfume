@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ShopNuocHoa.perfume>
+
+@{
+    ViewBag.Title = "Gettop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="color:green; text-align:center">Thông tin các sản phẩm bán chạy nhất</h2>
+
+<table class="table">
+    <tr style="background-color:LightGreen; text-align:center">
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Mô tả
+        </th>
+        <th>
+            Giá bán
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th>
+            Giảm giá (%)
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th width="150px">
+            Số sản phẩm đã bán
+        </th>
+        <th>
+            Tên nhãn hiệu
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.details)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            <img src="~/img/@Html.DisplayFor(modelItem => item.image)" width="100px"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.saleoff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.num_of_sale)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.brand.name)
+        </td>
+    </tr>
+}
+
+</table>

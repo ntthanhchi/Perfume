@@ -1,0 +1,434 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PerfumeIndexView
+@using ShopNuocHoa.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+
+<link href="~/css_animate/css/flexslider.css" rel="stylesheet">
+<link href="~/css_animate/css/style.css" rel="stylesheet">
+
+<script src="~/css_animate/js/jquery.js"></script>
+<script src="~/css_animate/js/bootstrap.js"></script>
+<script src="~/css_animate/js/jquery.prettyPhoto.js"></script>
+<script src="~/css_animate/js/jquery-hover-effect.js"></script>
+<script src="~/css_animate/js/animate.js"></script>
+<script src="~/css_animate/js/custom.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="~/css/carousel.css" rel="stylesheet">
+<script src="~/js/holder.js"></script>
+
+<script src="../sliderengine/jquery.js"></script>
+<script src="../sliderengine/amazingslider.js"></script>
+<link rel="stylesheet" type="text/css" href="../sliderengine/amazingslider-1.css">
+<script src="../sliderengine/initslider-1.js"></script>
+
+<link rel="stylesheet" href="~/css/stylesheet.css" />
+<link rel="stylesheet" href="~/css/footer.css" />
+
+
+<!--Slider-->
+<div class="col-md-12">
+    <div id="amazingslider-wrapper-1" style="display:block;position:relative;max-width:100%;margin:0 auto;">
+        <div id="amazingslider-1" style="display:block;position:relative;margin:0 auto;">
+            <ul class="amazingslider-slides" style="display:none;">
+                <li>
+                    <img src="../img_slider/24e25f8e-e2b1-4873-a09d-764c4ae489d8.jpg" alt="" title="24e25f8e-e2b1-4873-a09d-764c4ae489d8" />
+                </li>
+                <li>
+                    <img src="../img_slider/1025731_luxbeauty_jimmy_showcase_1500x300.jpg" alt="" title="1025731_luxbeauty_jimmy_showcase_1500x300" />
+                </li>
+                <li>
+                    <img src="../img_slider/slide1_image.jpg" alt="" title="slide1_image" />
+                </li>
+                <li>
+                    <img src="../img_slider/slide-bruno.jpg" alt="" title="slide-bruno" />
+                </li>
+                <li>
+                    <img src="../img_slider/slide-dus2.jpg" alt="" title="slide-dus2" />
+                </li>
+            </ul>
+            <ul class="amazingslider-thumbnails" style="display:none;">
+                <li><img src="../img_slider/24e25f8e-e2b1-4873-a09d-764c4ae489d8-tn.jpg" alt="24e25f8e-e2b1-4873-a09d-764c4ae489d8" title="24e25f8e-e2b1-4873-a09d-764c4ae489d8" /></li>
+                <li><img src="../img_slider/1025731_luxbeauty_jimmy_showcase_1500x300-tn.jpg" alt="1025731_luxbeauty_jimmy_showcase_1500x300" title="1025731_luxbeauty_jimmy_showcase_1500x300" /></li>
+                <li><img src="../img_slider/slide1_image-tn.jpg" alt="slide1_image" title="slide1_image" /></li>
+                <li><img src="../img_slider/slide-bruno-tn.jpg" alt="slide-bruno" title="slide-bruno" /></li>
+                <li><img src="../img_slider/slide-dus2-tn.jpg" alt="slide-dus2" title="slide-dus2" /></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!--Sản phẩm mới-->
+<div class="container" style="background-color: #f8f7fb; margin-top:50px; text-align:center">
+    <h3 style="font-family:'UTMLinotypeZapfinoKT','UTMNeoSansIntelBold'; text-align:center; margin-bottom:-5px; font-size:40px">Sản phẩm mới</h3>
+    <div>
+        <span class="line-left" style="width:110px; border:1px solid #e7e9ff; display:inline-block; margin:5px 0;"></span>
+        <img src="/img/icon-title.png" />
+        <span class="line-right" style="width:110px; border:1px solid #e7e9ff; display:inline-block; margin:5px 0;"></span>
+    </div>
+</div>
+
+<div class="container marketing">
+    <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <div class="carousel-inner">
+            @{ int newpro_count = 0; int newshow_pro = 0;}
+            @foreach (var newpro in Model.new_pro)
+            {
+                if (newpro_count <= 2 && newpro_count % 3 == 0)
+                {
+                    @:<div class="item active">
+                        @:<div class="row">
+                        }
+                        else if (newpro_count % 3 == 0 && newpro_count > 2)
+                        {
+                            @:<div class="item">
+                                @:<div class="row">
+                                }
+                                <div class="col-lg-4">
+                                    <img src="~/img/@newpro.image" alt="" width="200px" height="220px" />
+                                    <h4><a href="@Url.Action("Details", "Perfume", new { id = newpro.id })">@newpro.name</a></h4>
+                                    @if (@newpro.avg_rating != null)
+                                    {
+                                        <span class="stars three-pro">@newpro.avg_rating</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="stars three-pro">0</span>
+                                    }
+                                    <h6 style="text-align:center">@Html.FormatValue(@newpro.price, "{0:#,##0} đ")</h6>
+                                    <div style="margin-left: 10px">
+                                        <span class="badge badge-info">Sale @Html.FormatValue(@newpro.saleoff, "{0:#,##0} đ")%</span>
+                                        <input type="submit" class="btn btn-danger" style="font-size:10px"
+                                               onclick="AddToCart('@newpro.id')" value="Add To Cart" />
+                                    </div>
+                                </div>
+                                newshow_pro++;
+                                if (newshow_pro == 3)
+                                {
+                                @:</div>
+                            @:</div>
+                            newshow_pro = 0;
+                        }
+                        newpro_count++;
+                    }
+        </div>
+        <a class="left carousel-control" href="#myCarousel1" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#myCarousel1" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- /.carousel -->
+</div>
+</div>
+</div>
+
+
+<!--Sản phẩm bán chạy-->
+<div class="container" style="background-color: #f8f7fb; margin-top:50px; text-align:center">
+    <h3 style="font-family:'UTMLinotypeZapfinoKT','UTMNeoSansIntelBold'; text-align:center; margin-bottom:-5px; font-size:40px">Sản phẩm bán chạy</h3>
+    <div>
+        <span class="line-left" style="width:110px; border:1px solid #e7e9ff; display:inline-block; margin:5px 0;"></span>
+        <img src="/img/icon-title.png" />
+        <span class="line-right" style="width:110px; border:1px solid #e7e9ff; display:inline-block; margin:5px 0;"></span>
+    </div>
+</div>
+
+<div class="container marketing">
+    <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <div class="carousel-inner">
+            @{ int getpro_count = 0; int getshow_pro = 0;}
+            @foreach (var pro in Model.gettop)
+            {
+                if (getpro_count <= 2 && getpro_count % 3 == 0)
+                {
+                    @:<div class="item active">
+                        @:<div class="row">
+                        }
+                        else if (getpro_count % 3 == 0 && getpro_count > 2)
+                        {
+                            @:<div class="item">
+                                @:<div class="row">
+                                }
+                                <div class="col-lg-4">
+                                    <img src="~/img/@pro.image" alt="" width="200px" height="220px" />
+                                    <h4><a href="@Url.Action("Details", "Perfume", new { id = pro.id })">@pro.name</a></h4>
+                                    @if (@pro.avg_rating != null)
+                                    {
+                                        <span class="stars three-pro">@pro.avg_rating</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="stars three-pro">0</span>
+                                    }
+                                    <h6 style="text-align:center">@Html.FormatValue(@pro.price, "{0:#,##0} đ")</h6>
+                                    <div style="margin-left: 10px">
+                                        <span class="badge badge-info">Sale @Html.FormatValue(@pro.saleoff, "{0:#,##0} đ")%</span>
+                                        <input type="submit" class="btn btn-danger" style="font-size:10px"
+                                               onclick="AddToCart('@pro.id')" value="Add To Cart" />
+                                    </div>
+                                </div>
+                                getshow_pro++;
+                                if (getshow_pro == 3)
+                                {
+                                @:</div>
+                            @:</div>
+                            getshow_pro = 0;
+                        }
+                        getpro_count++;
+                    }
+        </div>
+        <a class="left carousel-control" href="#myCarousel2" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#myCarousel2" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- /.carousel -->
+</div>
+</div>
+</div>
+
+
+<!--Sản phẩm của chúng tôi-->
+<div class="container" style="background-color: #f8f7fb; margin-top:50px; text-align:center">
+    <h3 style="font-family:'UTMLinotypeZapfinoKT','UTMNeoSansIntelBold'; text-align:center; margin-bottom:-5px; font-size:40px">Sản phẩm của chúng tôi</h3>
+    <div>
+        <span class="line-left" style="width:110px; border:1px solid #e7e9ff; display:inline-block; margin:5px 0;"></span>
+        <img src="/img/icon-title.png" />
+        <span class="line-right" style="width:110px; border:1px solid #e7e9ff; display:inline-block; margin:5px 0;"></span>
+    </div>
+</div>
+
+<div class="container marketing">
+    @foreach (var perfume in Model.products)
+    {
+        <section id="maincontent" class="col-lg-3" style="margin-top:50px;">
+            <div class="container">
+                <div class="row">
+                    <div class="features e_pulse">
+                        <img src="~/img/@perfume.image" alt="" width="200px" height="220px" />
+                        <div class="box">
+                            <div class="divcenter">
+                                <h4 class="title"><a href="@Url.Action("Details", "Perfume", new { id = perfume.id })">@perfume.name</a></h4>
+                                @if (@perfume.avg_rating != null)
+                                {
+                                    <span class="stars four-pro">@perfume.avg_rating</span>
+                                }
+                                else
+                                {
+                                    <span class="stars four-pro">0</span>
+                                }
+                                <h6 style="text-align:center">@Html.FormatValue(@perfume.price, "{0:#,##0} đ")</h6>
+                                <div style="margin-left: 10px">
+                                    <span class="badge badge-info">Sale @Html.FormatValue(@perfume.saleoff, "{0:#,##0} đ")%</span>
+                                    <input type="submit" class="btn btn-danger" style="font-size:10px"
+                                           onclick="AddToCart('@perfume.id')" value="Add To Cart" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+</div>
+
+
+<!--Có thể bạn sẽ thích-->
+@if (Model.recomend_products.Count() != 0)
+{
+    <div class="container" style="background-color: #f8f7fb; margin-top:50px; text-align:center">
+        <h3 style="font-family:'UTMLinotypeZapfinoKT','UTMNeoSansIntelBold'; text-align:center; margin-bottom:-5px; font-size:40px">Có thể bạn sẽ thích</h3>
+        <div>
+            <span class="line-left" style="width:110px; border:1px solid #e7e9ff; display:inline-block; margin:5px 0;"></span>
+            <img src="/img/icon-title.png" />
+            <span class="line-right" style="width:110px; border:1px solid #e7e9ff; display:inline-block; margin:5px 0;"></span>
+        </div>
+    </div>
+}
+
+<div class="container marketing">
+    <div id="myCarousel3" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <div class="carousel-inner">
+            @{ int pro_count = 0; int show_pro = 0;}
+            @foreach (var item in Model.recomend_products)
+            {
+                if (pro_count <= 2 && pro_count % 3 == 0)
+                {
+                    @:<div class="item active">
+                        @:<div class="row">
+                        }
+                        else if (pro_count % 3 == 0 && pro_count > 2)
+                        {
+                            @:<div class="item">
+                                @:<div class="row">
+                                }
+                                <div class="col-lg-4">
+                                    <img src="~/img/@item.image" alt="" width="200px" height="220px" />
+                                    <h4><a href="@Url.Action("Details", "Perfume", new { id = item.id })">@item.name</a></h4>
+                                    @if (@item.avg_rating != null)
+                                    {
+                                        <span class="stars three-pro">@item.avg_rating</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="stars three-pro">0</span>
+                                    }
+                                    <h6 style="text-align:center">@Html.FormatValue(item.price, "{0:#,##0} đ")</h6>
+                                    <div style="margin-left: 10px">
+                                        <span class="badge badge-info">Sale @Html.FormatValue(item.saleoff, "{0:#,##0} đ")%</span>
+                                        <input type="submit" class="btn btn-danger" style="font-size:10px"
+                                               onclick="AddToCart('@item.id')" value="Add To Cart" />
+                                    </div>
+                                </div>
+                                show_pro++;
+                                if (show_pro == 3)
+                                {
+                                @:</div>
+                            @:</div>
+                            show_pro = 0;
+                        }
+                        pro_count++;
+                    }
+        </div>
+        @if (Model.recomend_products.Count() != 0)
+        {
+            <a class="left carousel-control" href="#myCarousel3" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <a class="right carousel-control" href="#myCarousel3" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        }
+
+    </div><!-- /.carousel -->
+</div>
+</div>
+</div>
+
+
+<!--Phân trang-->
+<div class="col-md-12 text-center clearfix">
+    @Html.PagedListPager(Model.products, sotrang => Url.Action("Index", new { page = sotrang }))
+</div>
+
+
+<!--Footer-->
+<div class="footer clearfix">
+    <div class="center">
+        <div class="footer-item">
+            <div class="title-footer">Perfume <span>Shop</span></div>
+            <div class="box-address">
+                <ul>
+                    <li>280 An Dương Vương phường 4 quận 5</li>
+                    <li>0123456789</li>
+                    <li>shopperfume2018@gmai.com</li>
+                    <li>www.</li>
+                </ul>
+            </div>
+            <div class="box-connect clearfix">
+                <ul>
+                    <li><a href="http://"><img src="~/images/footer_mxh1.png" alt="Mạng xã hội 1"></a></li>
+                    <li><a href="http://"><img src="~/images/footer_mxh2.png" alt="Mạng xã hội 2"></a></li>
+                    <li><a href="http://"><img src="~/images/footer_mxh3.png" alt="Mạng xã hội 3"></a></li>
+                    <li><a href="http://"><img src="~/images/footer_mxh4.png" alt="Mạng xã hội 4"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-item">
+            <div class="title-footer2">Đăng kí nhận tin</div>
+            <div class="box-dangkynhantin">
+                <form action="" method="post">
+                    <input type="text" name="email" id="email" placeholder="Email">
+                    <input type="button" value="Gửi">
+                </form>
+            </div>
+        </div>
+        <div class="footer-item">
+            <div class="title-footer2">Fanpage Facebook</div>
+            <div class="fanpage">
+                <!--<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FB%C3%A9-y%C3%AAu-314738792334201%2F&tabs=timeline&width=300&height=215&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="300" height="215" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>-->
+                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FPerfume-Shop-1899451053427029%2F%3Fmodal%3Dadmin_todo_tour&tabs=timeline&width=300&height=215&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1211189779024521" width="300" height="215" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+     attribution=setup_tool
+     page_id="1899451053427029">
+</div>
+
+
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/5b70045fafc2c34e96e77f9b/default';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
+
+
+
+@*<script src="~/js/jquery-3.2.1.min.js"></script>*@
+<script>
+    function AddToCart(BookId) {
+        $.ajax({
+            type: 'POST',
+            url: '/Perfume/AddToCart',
+            data: { id: BookId },
+            success: function (data) {
+                $("#Cart_Amount").html(data.ItemAmount);
+            }
+        });
+    }
+
+    @if (Session["ShoppingCart"] != null)
+    {
+        int cartcount = 0;
+        List<CartItem> ls = Session["ShoppingCart"] as List<CartItem>;
+        foreach (CartItem item in ls)
+        {
+            cartcount += item.Quantity;
+        }
+        ViewBag.count = cartcount;
+    }
+</script>
+<script>
+    $.fn.stars = function () {
+        return $(this).each(function () {
+            // Get the value
+            var val = parseFloat($(this).html());
+            // Make sure that the value is in 0 - 5 range, multiply to get width
+            var size = Math.max(0, (Math.min(5, val))) * 16;
+            // Create stars holder
+            var $span = $('<span />').width(size);
+            // Replace the numerical value with stars
+            $(this).html($span);
+        });
+    }
+    $(function () {
+        $('span.stars').stars();
+    });
+</script>
+

@@ -1,0 +1,16 @@
+﻿@using ShopNuocHoa.Models
+@model PerfumeIndexView
+
+@foreach (var brand in Model.nhanhieu)
+{
+    <a href="@Url.Action("ViewBrand", "Perfume", new { id = brand.id })" class="list-group-item">@brand.name<br /></a>
+}
+
+
+
+
+
+
+
+
+

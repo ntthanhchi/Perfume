@@ -1,0 +1,195 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PerfumeIndexView
+@using ShopNuocHoa.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+
+<link href="../css_animate/css/flexslider.css" rel="stylesheet">
+<link href="../css_animate/css/style.css" rel="stylesheet">
+
+<script src="../css_animate/js/jquery.js"></script>
+<script src="../css_animate/js/bootstrap.js"></script>
+<script src="../css_animate/js/jquery.prettyPhoto.js"></script>
+<script src="../css_animate/js/jquery-hover-effect.js"></script>
+<script src="../css_animate/js/animate.js"></script>
+<script src="../css_animate/js/custom.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="../css/carousel.css" rel="stylesheet">
+<script src="../js/holder.js"></script>
+
+
+<script src="../sliderengine/jquery.js"></script>
+<script src="../sliderengine/amazingslider.js"></script>
+<link rel="stylesheet" type="text/css" href="../sliderengine/amazingslider-1.css">
+<script src="../sliderengine/initslider-1.js"></script>
+
+<link rel="stylesheet" href="../css/stylesheet.css" />
+
+<div class="col-md-12">
+    <div id="amazingslider-wrapper-1" style="display:block;position:relative;max-width:100%;margin:0 auto;">
+        <div id="amazingslider-1" style="display:block;position:relative;margin:0 auto;">
+            <ul class="amazingslider-slides" style="display:none;">
+                <li>
+                    <img src="../img_slider/24e25f8e-e2b1-4873-a09d-764c4ae489d8.jpg" alt="" title="24e25f8e-e2b1-4873-a09d-764c4ae489d8" />
+                </li>
+                <li>
+                    <img src="../img_slider/1025731_luxbeauty_jimmy_showcase_1500x300.jpg" alt="" title="1025731_luxbeauty_jimmy_showcase_1500x300" />
+                </li>
+                <li>
+                    <img src="../img_slider/slide1_image.jpg" alt="" title="slide1_image" />
+                </li>
+                <li>
+                    <img src="../img_slider/slide-bruno.jpg" alt="" title="slide-bruno" />
+                </li>
+                <li>
+                    <img src="../img_slider/slide-dus2.jpg" alt="" title="slide-dus2" />
+                </li>
+            </ul>
+            <ul class="amazingslider-thumbnails" style="display:none;">
+                <li><img src="../img_slider/24e25f8e-e2b1-4873-a09d-764c4ae489d8-tn.jpg" alt="24e25f8e-e2b1-4873-a09d-764c4ae489d8" title="24e25f8e-e2b1-4873-a09d-764c4ae489d8" /></li>
+                <li><img src="../img_slider/1025731_luxbeauty_jimmy_showcase_1500x300-tn.jpg" alt="1025731_luxbeauty_jimmy_showcase_1500x300" title="1025731_luxbeauty_jimmy_showcase_1500x300" /></li>
+                <li><img src="../img_slider/slide1_image-tn.jpg" alt="slide1_image" title="slide1_image" /></li>
+                <li><img src="../img_slider/slide-bruno-tn.jpg" alt="slide-bruno" title="slide-bruno" /></li>
+                <li><img src="../img_slider/slide-dus2-tn.jpg" alt="slide-dus2" title="slide-dus2" /></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="background-color: #f8f7fb; margin-top:50px; text-align:center">
+    <h3 style="font-family:'UTMLinotypeZapfinoKT','UTMNeoSansIntelBold'; text-align:center; margin-bottom:-5px; font-size:40px">Sản phẩm mới</h3>
+    <div>
+        <span class="line-left" style="width:110px; border:1px solid #e7e9ff; display:inline-block; margin:5px 0;"></span>
+        <img src="/img/icon-title.png" />
+        <span class="line-right" style="width:110px; border:1px solid #e7e9ff; display:inline-block; margin:5px 0;"></span>
+    </div>
+</div>
+
+<div class="container marketing">
+    <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="row">
+                    <!--@foreach (var perfume in Model.products)
+                    {
+                        <div class="col-lg-4">
+                            <img src="~/img/@perfume.image" alt="" width="200px" height="220px" />
+                            <h4><a href="@Url.Action("Details", "Perfume", new { id = perfume.id })">@perfume.name</a></h4>
+                            <h6 style="text-align:center">@Html.FormatValue(@perfume.price, "{0:#,##0} đ")</h6>
+                            <div style="margin-left: 10px">
+                                <span class="badge badge-info">Sale @Html.FormatValue(@perfume.saleoff, "{0:#,##0} đ")%</span>
+                                <input type="submit" class="btn btn-danger" style="font-size:10px"
+                                       onclick="AddToCart('@perfume.id')" value="Add To Cart" />
+                            </div>
+                        </div>
+                    }-->
+                </div>
+            </div>
+
+        </div>
+        <a class="left carousel-control" href="#myCarousel1" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#myCarousel1" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- /.carousel -->
+</div>
+
+
+<div class="container" style="background-color: #f8f7fb; margin-top:50px; text-align:center">
+    <h3 style="font-family:'UTMLinotypeZapfinoKT','UTMNeoSansIntelBold'; text-align:center; margin-bottom:-5px; font-size:40px">Sản phẩm của chúng tôi</h3>
+    <div>
+        <span class="line-left" style="width:110px; border:1px solid #e7e9ff; display:inline-block; margin:5px 0;"></span>
+        <img src="/img/icon-title.png" />
+        <span class="line-right" style="width:110px; border:1px solid #e7e9ff; display:inline-block; margin:5px 0;"></span>
+    </div>
+</div>
+
+<!--@foreach (var perfume in Model.products)
+{
+    <div class="col-lg-3" >
+        <div class="thumbnail" id="DataSearching">
+            <img src="~/img/@perfume.image" width="100%">
+            <div class="caption">
+                <h4 class="title"><a href="@Url.Action("Details", "Perfume", new { id=perfume.id})">@perfume.name</a></h4>
+                <h6 style="text-align:center">@Html.FormatValue(@perfume.price, "{0:#,##0} đ")</h6>
+                <div style="margin-left: 50px">
+                    <span class="badge badge-info">Sale @Html.FormatValue(@perfume.saleoff, "{0:#,##0} đ")%</span>
+                    <input type="submit" class="btn btn-danger" style="font-size:10px"
+                           onclick="AddToCart('@perfume.id')" value="Add To Cart" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+}-->
+
+@foreach (var perfume in Model.products)
+{
+    <section id="maincontent" class="col-lg-3" style="margin-top:50px;">
+        <div class="container">
+            <div class="row">
+                <div class="features e_pulse">
+                    <img src="~/img/@perfume.image" alt="" width="200px" height="220px" />
+                    <div class="box">
+                        <div class="divcenter">
+                            <h4 class="title"><a href="@Url.Action("Details", "Perfume", new { id = perfume.id })">@perfume.name</a></h4>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <h6 style="text-align:center">@Html.FormatValue(@perfume.price, "{0:#,##0} đ")</h6>
+                            <div style="margin-left: 10px">
+                                <span class="badge badge-info">Sale @Html.FormatValue(@perfume.saleoff, "{0:#,##0} đ")%</span>
+                                <input type="submit" class="btn btn-danger" style="font-size:10px"
+                                       onclick="AddToCart('@perfume.id')" value="Add To Cart" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+}
+
+@foreach(var item in Model.recomend_products)
+{
+    <h2>@item.id</h2>
+}
+
+<div class="col-md-12 text-center clearfix" >
+    @Html.PagedListPager(Model.products, sotrang => Url.Action("Index", new { page=sotrang}))
+</div>
+
+@*<script src="~/js/jquery-3.2.1.min.js"></script>*@
+<script>
+    function AddToCart(BookId) {
+        $.ajax({
+            type: 'POST',
+            url: '/Perfume/AddToCart',
+            data: { id: BookId },
+            success: function (data) {
+                $("#Cart_Amount").html(data.ItemAmount);
+            }
+        });
+    }
+
+    @if (Session["ShoppingCart"] != null)
+    {
+        int cartcount = 0;
+        List<CartItem> ls = Session["ShoppingCart"] as List<CartItem>;
+        foreach (CartItem item in ls)
+        {
+            cartcount += item.Quantity;
+        }
+        ViewBag.count = cartcount;
+    }
+</script>
+

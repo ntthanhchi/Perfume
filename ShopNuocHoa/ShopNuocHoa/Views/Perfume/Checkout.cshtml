@@ -1,0 +1,99 @@
+﻿@using ShopNuocHoa.Models
+@model CheckoutModelForm
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+@if (Model == null || Model.cartItem.Count == 0)
+{
+    <p class="alert alert-danger">
+        Giỏ hàng của bạn rỗng!
+    </p>
+}
+else
+{
+    <h2 class="alert alert-warning">Giỏ hàng của bạn</h2>
+    <div class="">
+        <div class="row">
+                <div class="col-md-6">
+                    @using (Html.BeginForm("Checkout", "Perfume", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div style="margin-bottom:2%">
+                            @Html.TextBoxFor(Model => Model.Username, new { @class = "form-control", @placeholder = "Username" })
+                        </div>
+                        <div style="margin-bottom:2%">
+                            @Html.TextBoxFor(Model => Model.Email, new { @class = "form-control", @placeholder = "Email" })
+                        </div>
+                        <div style="margin-bottom:2%">
+                            @Html.TextBoxFor(Model => Model.Hoten, new { @class = "form-control", @placeholder = "Name" })
+                        </div>
+                        <div style="margin-bottom:2%">
+                            @Html.TextBoxFor(Model => Model.Phone, new { @class = "form-control", @placeholder = "Phone Number" })
+                        </div>
+                            @Html.TextBoxFor(Model => Model.DiaChi, new { @class = "form-control", @placeholder = "Address" })
+                            <input type="submit" value="checkout" class="btn btn-default" />
+                     }
+                    </div>
+                <div class="col-md-6">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Hình</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Đơn giá</th>
+                                <th>Khuyến mãi</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền</th>
+                            </tr>
+                        </thead>
+                        @{
+                            double total = 0;
+                            List<ShopNuocHoa.Models.CartItem> listCart = Session["ShoppingCart"] as
+                            List<ShopNuocHoa.Models.CartItem>;
+                        }
+                        <tbody>
+                            @if (listCart != null)
+                        {
+                            foreach (var item in listCart)
+                            {
+                                    <tr>
+                                        <td width="100px">
+                                            <img src="~/img/@item.PerfumeOrder.image" width="50px" style="height:50px" />
+                                        </td>
+                                        <td>@item.PerfumeOrder.name</td>
+                                        <td>@Html.FormatValue(@item.PerfumeOrder.price, "{0:#,##0} đ")</td>
+                                        <td>@item.PerfumeOrder.saleoff%</td>
+                                        <td>
+                                            <form action="@Url.Action("UpdateQuantity")" method="get">
+                                                <input type="hidden" name="SanPhamID" value="@item.PerfumeOrder.id" />
+                                                <input type="text" min="1" step="1" name="soluongmoi" value="@item.Quantity" style="width:50px" />
+                                            </form>
+                                        </td>
+                                        <td class="text-right">
+                                            @{
+                                                double tong = (double)(@item.PerfumeOrder.price * @item.Quantity - @item.PerfumeOrder.price * @item.PerfumeOrder.saleoff * @item.Quantity / 100);
+                                                total += tong;
+                                            }
+                                            @Html.FormatValue(tong, "{0:#,##0} đ")
+                                        </td>
+                                    </tr>
+                                                    }
+                                                }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="7" class="text-right">
+                                    <strong>
+                                        Tổng tiền: @Html.FormatValue(total, "{0:#,##0} đ")
+                                    </strong>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+    </div>
+}

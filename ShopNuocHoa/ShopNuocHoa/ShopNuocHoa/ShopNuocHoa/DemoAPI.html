@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Content/bootstrap1.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <script>
+    function formatItem(item) {
+        return "id:" + item.id + " - "  + "Tên:" + item.name + " - " + "Giá:" + item.price;
+    }
+    function formatSearch(item) {
+        return "id:" + item.id + " - Tên SP:" + item.name + " - Giá:" + item.price + " - Số lượng:" + +item.quantity + "- Giảm giá:" + item.saleoff + "%"
+            + "<br/>" + "Mô tả sản phẩm:" + item.details;
+    }
+    $(document).ready(function () {
+        //hiển thị tất cả dữ liệu ra thẻ ul
+        $.getJSON('api/perfumes_api/Getperfume').done(function (data) {
+            $.each(data, function (key, item) {
+                $('<li>', {
+                    text: formatItem(item)
+                }).appendTo($('#dssanpham'));
+            });
+        });
+
+        //Xử ký nút Tìm
+        $("#btnTim").click(function (e) {
+            var id = $("#txtTim").val();
+            $.getJSON('api/perfumes_api/Getperfume/' + id).done(function (data) {
+                $("#KQ").html(formatSearch(data));
+            })
+            .fail(function (err) {
+                $("#KQ").text("Lỗi : không tìm thấy sản phẩm");
+            });
+        });
+    });
+    </script>
+
+        <div class="container">
+            <h2 style="color:green;">API Lấy thông tin sản phẩm</h2>
+            <div class="row col-md-10">
+               <div class="panel panel-success">
+                  <div class="panel-heading">
+                      <h4>Tất cả sản phẩm</h4>
+                  </div>
+                  <div class="panel-body">
+                      <ul id="dssanpham"></ul>
+                  </div>
+             </div>
+            <div class="row col-md-10">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h4>Tìm theo id sản phẩm</h4>
+                    </div>
+                    <div class="panel-body">
+                        <input type="text" id="txtTim" placeholder="Nhập id sản phẩm" />
+                        <input type="submit" id="btnTim" value="Tìm" />
+                        <div id="KQ"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
