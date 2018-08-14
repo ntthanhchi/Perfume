@@ -242,6 +242,7 @@
     <Compile Include="Controllers\perfumes_apiController.cs" />
     <Compile Include="Controllers\perfumes_backendController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Correlations.cs">
       <DependentUpon>ShopNuocHoa.tt</DependentUpon>
     </Compile>
@@ -346,6 +347,7 @@
     <Content Include="fonts\UTMNeoSansIntelBold.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\btn_search.png" />
     <Content Include="images\footer_bg6.png" />
     <Content Include="images\footer_diachi.png" />
     <Content Include="images\footer_dienthoai.png" />
@@ -667,6 +669,7 @@
     <Content Include="Views\brands_backend\Details.cshtml" />
     <Content Include="Views\brands_backend\Edit.cshtml" />
     <Content Include="Views\brands_backend\Index.cshtml" />
+    <Content Include="Views\Search\SearchResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

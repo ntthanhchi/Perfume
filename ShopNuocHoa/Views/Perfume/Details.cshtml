@@ -189,15 +189,15 @@
         {
             <h3 style="font-family:'UTMLinotypeZapfinoKT','UTMNeoSansIntelBold'; font-size:40px;">Sản phẩm cùng nhãn hiệu</h3>
             <div>
-                @foreach(var i in Model.it_brand)
+                @foreach (var i in Model.it_brand)
                 {
-                <div>
-                    <img src="~/img/@i.image" width="120px" height="100px" style="border:1px solid; margin-bottom:2%; border-color:azure;" />
-                    <div style="float:right;  ">
-                        <h4 class="title"><a href="@Url.Action("Details", "Perfume", new { id = i.id })">@i.name</a></h4>
-                        <p><span style="font-size:13pt; text-align:center">@Html.FormatValue(@i.price, "{0:#,##0} đ") VNĐ</span></p>
+                    <div>
+                        <img src="~/img/@i.image" width="120px" height="100px" style="border:1px solid; margin-bottom:2%; border-color:azure;" />
+                        <div style="float:right;  ">
+                            <h4 class="title"><a href="@Url.Action("Details", "Perfume", new { id = i.id })">@i.name</a></h4>
+                            <p><span style="font-size:13pt; text-align:center">@Html.FormatValue(@i.price, "{0:#,##0} đ") VNĐ</span></p>
+                        </div>
                     </div>
-                </div>
                 }
             </div>
         }
@@ -230,17 +230,31 @@
             </div>
         </div>
         @using (Html.BeginForm("Details", "Perfume", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
+        {
             @Html.AntiForgeryToken()
             <div class="form-group">
                 @Html.TextAreaFor(Model => Model.newcomment.message, new { @class = "form-control", @placeholder = "Write your comment...." })
                 <small id="emailHelp" class="form-text text-muted">Give me your opion about our products</small>
             </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         }
     </div>
 
 </div>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/5b70045fafc2c34e96e77f9b/default';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
 
 <script>
     function AddToCart(BookId) {

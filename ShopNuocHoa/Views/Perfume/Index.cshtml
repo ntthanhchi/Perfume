@@ -212,7 +212,7 @@
                         <img src="~/img/@perfume.image" alt="" width="200px" height="220px" />
                         <div class="box">
                             <div class="divcenter">
-                                <h4 class="title"><a href="@Url.Action("Details", "Perfume", new { id = perfume.id })">@perfume.name</a></h4>
+                                <h4 class="title"><a href="@Url.Action("Details", "Perfume", new { id = perfume.id})">@perfume.name</a></h4>
                                 @if (@perfume.avg_rating != null)
                                 {
                                     <span class="stars four-pro">@perfume.avg_rating</span>

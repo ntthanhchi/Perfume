@@ -14,6 +14,6 @@ namespace ShopNuocHoa.Models
         public DbSet<brand> nhanhieu { get; set; }
         public List<perfume> gettop { get; set; }
         public List<perfume> new_pro { get; set; }
-        
+       
     }
 }

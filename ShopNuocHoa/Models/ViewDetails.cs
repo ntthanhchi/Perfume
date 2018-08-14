@@ -19,5 +19,6 @@ namespace ShopNuocHoa.Models
         public int quantity { get; set; }
         public int status { get; set; }
         public int rating { get; set; }
+
     }
 }
