@@ -39,5 +39,7 @@ namespace ShopNuocHoa
         public virtual DbSet<UserVotes> UserVotes { get; set; }
         public virtual DbSet<Correlations> Correlations { get; set; }
         public virtual DbSet<ItemCorrel> ItemCorrel { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetail { get; set; }
     }
 }

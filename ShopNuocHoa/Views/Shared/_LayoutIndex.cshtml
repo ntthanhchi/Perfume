@@ -60,11 +60,11 @@
                         <a href="/Perfume/About" class="nav-link">About</a>
                     </li>
 
-                    <li class="nav-item" style="margin-left:20px; margin-top:10px">
-                        @using (Html.BeginForm("SearchResult", "Search",FormMethod.Post))
+                    <li class="nav-item" style="margin-top:10px; margin-left:20px">
+                        @using (Html.BeginForm("SearchResult", "Search", FormMethod.Post))
                         {
-                            @Html.TextBox("txtTimKiem","", htmlAttributes:new { @placeholder = "Nhập từ khoá cần tìm"})
-                         
+                            @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @placeholder = "Nhập từ khoá cần tìm" })
+
                             <button>
                                 <img src="~/images/btn_search.png" width="20px" height="20px" />
                             </button>

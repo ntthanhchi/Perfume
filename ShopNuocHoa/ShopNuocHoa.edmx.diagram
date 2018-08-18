@@ -25,6 +25,10 @@
         <EntityTypeShape EntityType="Model.UserVotes" Width="1.5" PointX="10.375" PointY="0.75" />
         <EntityTypeShape EntityType="Model.Correlations" Width="1.5" PointX="0.75" PointY="10.75" />
         <EntityTypeShape EntityType="Model.ItemCorrel" Width="1.5" PointX="10.375" PointY="3.75" />
+        <EntityTypeShape EntityType="Model.Order" Width="1.5" PointX="3.125" PointY="12.375" />
+        <EntityTypeShape EntityType="Model.OrderDetail" Width="1.5" PointX="5.375" PointY="10.75" />
+        <AssociationConnector Association="Model.FK__OrderDeta__Order__318258D2" />
+        <AssociationConnector Association="Model.FK__OrderDeta__Produ__308E3499" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

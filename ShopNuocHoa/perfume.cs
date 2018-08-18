@@ -19,6 +19,7 @@ namespace ShopNuocHoa
         {
             this.sale = new HashSet<sale>();
             this.image1 = new HashSet<image>();
+            this.OrderDetail = new HashSet<OrderDetail>();
         }
     
         public int id { get; set; }
@@ -40,5 +41,7 @@ namespace ShopNuocHoa
         public virtual ICollection<sale> sale { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<image> image1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderDetail> OrderDetail { get; set; }
     }
 }
